@@ -1,6 +1,16 @@
 package com.example.team.fch.secretofmay.domain.puzzle.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,8 +29,8 @@ public class PuzzleClue {
     @JoinColumn(name = "puzzle_id", nullable = false)
     private Puzzle puzzle;
 
-    @Column(name = "exam_number", nullable = false)
-    private Integer examNumber;
+    @Column(name = "clue_number", nullable = false)
+    private int clueNumber;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 10)
@@ -33,17 +43,17 @@ public class PuzzleClue {
     private String answer;
 
     @Column(name = "start_row_index", nullable = false)
-    private Integer startRowIndex;
+    private int startRowIndex;
 
     @Column(name = "start_col_index", nullable = false)
-    private Integer startColIndex;
+    private int startColIndex;
 
     @Column(nullable = false)
-    private Integer length;
+    private int length;
 
-    public PuzzleClue(Puzzle puzzle, Integer examNumber, Direction direction, String content, String answer, Integer startRowIndex, Integer startColIndex, Integer length) {
+    public PuzzleClue(Puzzle puzzle, int clueNumber, Direction direction, String content, String answer, int startRowIndex, int startColIndex, int length) {
         this.puzzle = puzzle;
-        this.examNumber = examNumber;
+        this.clueNumber = clueNumber;
         this.direction = direction;
         this.content = content;
         this.answer = answer;

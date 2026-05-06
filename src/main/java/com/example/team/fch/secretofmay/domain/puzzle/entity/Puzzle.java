@@ -1,11 +1,16 @@
 package com.example.team.fch.secretofmay.domain.puzzle.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Entity
@@ -21,18 +26,18 @@ public class Puzzle {
     private String title;
 
     @Column(name = "row_size", nullable = false)
-    private Integer rowSize;
+    private int rowSize;
 
     @Column(name = "col_size", nullable = false)
-    private Integer colSize;
+    private int colSize;
 
     @Column(name = "is_active", nullable = false)
-    private Boolean isActive;
+    private boolean isActive;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    public Puzzle(String title, Integer rowSize, Integer colSize, Boolean isActive) {
+    public Puzzle(String title, int rowSize, int colSize, boolean isActive) {
         this.title = title;
         this.rowSize = rowSize;
         this.colSize = colSize;
