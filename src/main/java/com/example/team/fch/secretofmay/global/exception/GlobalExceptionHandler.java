@@ -1,4 +1,4 @@
-package com.example.team.fch.secretofmay.som.global.exception;
+package com.example.team.fch.secretofmay.global.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

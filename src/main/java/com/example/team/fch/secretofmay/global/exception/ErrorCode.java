@@ -1,4 +1,4 @@
-package com.example.team.fch.secretofmay.som.global.exception;
+package com.example.team.fch.secretofmay.global.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
