@@ -1,0 +1,14 @@
+package com.example.team.fch.secretofmay.domain.attempt.repository;
+
+import com.example.team.fch.secretofmay.domain.attempt.entity.PuzzleAttempt;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PuzzleAttemptRepository extends JpaRepository<PuzzleAttempt, Long> {
+
+    List<PuzzleAttempt> findAllByIsCompletedTrueOrderByDurationMsAsc();
+
+    List<PuzzleAttempt> findAllByIsCompletedTrueAndGuest_NicknameContainingOrderByDurationMsAsc(String nickname);
+
+    long countByIsCompletedTrueAndDurationMsLessThan(Long durationMs);
+}
