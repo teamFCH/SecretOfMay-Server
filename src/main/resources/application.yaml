@@ -19,3 +19,8 @@ spring:
 
 server:
   port: ${PORT:8080}
+
+discord:
+  webhook-url: ${DISCORD_WEBHOOK_URL}
+  enabled: ${DISCORD_WEBHOOK_ENABLED:true}
+  environment: ${DISCORD_ENVIRONMENT}
