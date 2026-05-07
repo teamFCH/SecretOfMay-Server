@@ -30,6 +30,10 @@ public class GetGuestServiceImpl implements GetGuestService {
     @Override
     @Transactional(readOnly = true)
     public Guest getBySessionId(String sessionId) {
+        if (sessionId == null || sessionId.isBlank()) {
+            throw new GlobalException(ErrorCode.SESSION_NOT_FOUND);
+        }
+
         return guestRepository.findBySessionId(sessionId)
                 .orElseThrow(() -> new GlobalException(ErrorCode.SESSION_NOT_FOUND));
     }

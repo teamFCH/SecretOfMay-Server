@@ -12,24 +12,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/guest")
 public class GuestController {
 
     private final CreateGuestService createGuestService;
     private final GetGuestService getGuestService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/api/guest")
+    @PostMapping
     public CreateGuestResponse createGuest(@Valid @RequestBody CreateGuestRequest request) {
         return createGuestService.execute(request);
     }
 
-    @GetMapping("/api/guest/me")
-    public GuestMeResponse getMe(@RequestHeader("X-Session-Id") String sessionId) {
+    @GetMapping("/me")
+    public GuestMeResponse getMe(@RequestHeader(value = "X-Session-Id", required = false) String sessionId) {
         return getGuestService.execute(sessionId);
     }
 }
