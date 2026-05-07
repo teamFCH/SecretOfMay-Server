@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PuzzleAttemptRepository extends JpaRepository<PuzzleAttempt, Long> {
 
-    List<PuzzleAttempt> findAllByIsCompletedTrueOrderByDurationMsAsc();
+    List<PuzzleAttempt> findAllByCompletedTrueOrderByDurationMsAsc();
 
-    List<PuzzleAttempt> findAllByIsCompletedTrueAndGuest_NicknameContainingOrderByDurationMsAsc(String nickname);
+    List<PuzzleAttempt> findAllByCompletedTrueAndGuest_NicknameContainingOrderByDurationMsAsc(String nickname);
 
-    long countByIsCompletedTrueAndDurationMsLessThan(Long durationMs);
+    long countByCompletedTrueAndDurationMsLessThan(Long durationMs);
 }
