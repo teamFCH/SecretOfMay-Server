@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/health")
+@RequestMapping("/api/health")
 public class HealthCheckController {
 
     @GetMapping("/check")
     public Map<String, String> healthCheck() {
         Map<String, String> response = new HashMap<>();
-        response.put("statues", "OK");
+        response.put("status", "OK");
 
         return response;
     }
