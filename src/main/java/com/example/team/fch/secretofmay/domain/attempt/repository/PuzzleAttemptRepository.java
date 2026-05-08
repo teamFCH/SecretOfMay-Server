@@ -10,5 +10,5 @@ public interface PuzzleAttemptRepository extends JpaRepository<PuzzleAttempt, Lo
 
     List<PuzzleAttempt> findAllByCompletedTrueAndGuest_NicknameContainingOrderByDurationMsAsc(String nickname);
 
-    long countByCompletedTrueAndDurationMsLessThan(Long durationMs);
+    long countByIsCompletedTrueAndDurationMsLessThan(Long durationMs);
 }
